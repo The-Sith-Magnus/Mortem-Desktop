@@ -1,0 +1,8 @@
+window:
+  decorations: none
+
+font:
+  normal:
+    family: "UbuntuMono Nerd Font"
+    style: Regular
+  size: 11

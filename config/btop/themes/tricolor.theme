@@ -1,0 +1,52 @@
+# ===================================
+#  btop theme — tricolor philosophy
+# ===================================
+
+theme[main_bg]="#fdf6e3"
+theme[main_fg]="#301934"
+
+theme[title]="#9966CB"
+theme[hi_fg]="#9966CB"
+theme[selected_bg]="#9966CB"
+theme[selected_fg]="#fdf6e3"
+
+theme[inactive_fg]="#6a5673"
+theme[graph_text]="#301934"
+theme[meter_bg]="#efe6d1"
+
+# ---- CPU ----
+theme[cpu_box]="#9966CB"
+theme[cpu_start]="#301934"
+theme[cpu_mid]="#7a4fb0"
+theme[cpu_end]="#9966CB"
+
+# ---- Memory ----
+theme[mem_box]="#9966CB"
+theme[mem_start]="#301934"
+theme[mem_mid]="#7a4fb0"
+theme[mem_end]="#9966CB"
+
+# ---- Network ----
+theme[net_box]="#9966CB"
+theme[download_start]="#301934"
+theme[download_mid]="#7a4fb0"
+theme[download_end]="#9966CB"
+theme[upload_start]="#301934"
+theme[upload_mid]="#7a4fb0"
+theme[upload_end]="#9966CB"
+
+# ---- Process list ----
+theme[proc_box]="#9966CB"
+theme[proc_misc]="#301934"
+
+# ---- Temp / Battery / Misc ----
+theme[temp_start]="#301934"
+theme[temp_mid]="#7a4fb0"
+theme[temp_end]="#9966CB"
+
+theme[battery_start]="#301934"
+theme[battery_mid]="#7a4fb0"
+theme[battery_end]="#9966CB"
+
+# ---- Borders ----
+theme[border]="#9966CB"

@@ -1,0 +1,51 @@
+* { 
+	border-radius: 0.0035em;
+	border: none;
+}
+
+window { 
+    font-size: 2em;
+    font-family: "TamzenForPowerline";
+	background-color: rgba(253, 246, 227, 1.0);   /* primary */
+    color: #301934;                                /* text-color */
+
+	/* border on all sides except right */
+	border-style: solid;
+	border-width: 0.05em 0.05em 0.05em 0.05em;       /* top right bottom left */
+	border-color: #9966CB;                         /* secondary */
+}
+
+#entry{ 
+	padding: 0.5em;
+}
+
+#entry:selected {
+	background-color: rgba(253, 246, 227, 0.72);   /* primary */
+	border-style: solid;
+	border-width: 0.0em 0em 0.0em 0.0em;       /* no right border */
+	border-color: #9966CB;                          /* secondary */
+}
+
+#text:selected {
+	color: #9966CB;                                 /* secondary */
+}
+
+#input{ 
+	background-color: transparent;
+	color: #301934;                                 /* text-color */
+	padding: 0.15em; 
+} 
+
+#input:focus {  
+	border-style: solid;
+	border-width: 0.035em 0em 0.035em 0.035em;       /* no right border */
+	border-color: #9966CB;                          /* secondary */
+}
+
+#entry {
+    padding: 6px 10px;
+}
+
+#entry image {
+    margin-right: 12px;   /* ← this creates space */
+}

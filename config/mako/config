@@ -1,0 +1,32 @@
+# ===== Mako config — tricolor theme =====
+
+anchor=top-right
+font=monospace 12
+
+# primary
+background-color=#FDF6E3FF
+
+# text-color
+text-color=#301934ff
+
+width=300
+height=600
+max-history=10
+margin=10,10,20
+padding=5
+
+border-size=2
+
+# secondary
+border-color=#9966cbff
+
+border-radius=1
+default-timeout=20000
+group-by=summary
+icons=1
+
+[grouped]
+format=<b>%s</b>\n%b
+
+# makoctl reload   # Load last config
+# makoctl restore  # Load last notify
