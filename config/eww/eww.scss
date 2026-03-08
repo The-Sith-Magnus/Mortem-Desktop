@@ -1,0 +1,99 @@
+// ===== Color Variables =====
+$text-color: #301934;
+$primary: rgba(253, 246, 227, 1);
+$secondary: #9966CB;
+
+// ===== Size Variables =====
+$font-size-base:20px;
+$font-weight-base: bolder;
+
+$window-radius: 0.1em;
+$window-padding: 12px;
+$window-border-width: 0.05em;
+
+$module-radius: 10px;
+$module-margin-top: 10px;
+$clock-margin-bottom: 0px;
+
+$button-padding: 10px;
+$button-radius: 10px;
+$button-min-size: 36px;
+
+$scale-radius: 0.15em 0.15em 0.15em 0.15em;
+$scale-slider-height: 20px;
+$scale-slider-width: 20px;
+$trough-radius: 0.15em 0.15em 0.15em 0.15em;
+
+// ===== Global Reset =====
+* {
+  all: unset;
+  font-family: "Ubuntu Nerd Font", "Symbol Mono Nerd Font";
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  color: $text-color;
+}
+
+// ===== Window =====
+window { 
+  background-color: $primary;
+  border-radius: $window-radius;
+  padding: $window-padding;
+
+  /* left border only */
+  border-style: solid;
+  border-width: $window-border-width; /* top right bottom left */
+  border-color: $secondary;
+}
+
+// ===== Layout Boxes =====
+.top_modules_box { 
+  margin-top: $module-margin-top;
+  border-radius: $module-radius;
+}
+
+.clock_box { 
+  margin-bottom: $clock-margin-bottom;
+}
+
+// ===== Buttons =====
+button { 
+  padding: $button-padding;
+  border-radius: $button-radius;
+  min-width: $button-min-size;
+  min-height: $button-min-size;
+}
+
+button:hover {
+  background-color: $primary;
+}
+
+// ===== Scale =====
+scale {
+
+  trough { 
+    background-color: $primary;
+    border-radius: $trough-radius;
+  }
+
+  trough slider {
+    min-width: $scale-slider-width;
+    min-height: $scale-slider-height;
+    background: $secondary;
+    border-radius: $scale-radius;
+  }
+
+  trough highlight,
+  trough fill { 
+    background: $text-color;
+  }
+}
+
+.dateblock label {
+  font-size: 7px;
+ 
+}
+
+.wifi_button_widget button { 
+  min-width: $button-min-size;
+  min-height: $button-min-size;
+}

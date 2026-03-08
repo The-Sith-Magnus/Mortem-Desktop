@@ -1,0 +1,459 @@
+;;Battery Widget
+(defpoll battery_icon :interval "1s" "bash -c \"$HOME/.config/eww/bar/scripts/battery.sh icon\"")
+(defpoll battery_percentage :interval "1s" "bash -c \"$HOME/.config/eww/bar/scripts/battery.sh charge\"")
+(defwidget battery[]
+  (button
+    :class "battery"
+    :onclick "bash -c placeholder"
+  (box
+  :orientation "center"
+  :halign "center"
+  :valign "center"
+  :spacing 2
+  (label :text battery_icon)
+  ))
+)
+
+;;Wi-Fi Widget 
+(defvar wifipanelopen false)
+(defpoll wifi_icon :interval "1s" "bash -c \"$HOME/.config/eww/bar/scripts/wifi.sh icon\"")
+(defpoll wifi_list
+  :interval "1s"
+  "bash -c '$HOME/.config/eww/bar/scripts/wifi.sh list'"  
+)
+(defwidget wifi[]
+  (button
+    :class "wifi"
+    :onclick "bash -c '$HOME/.config/eww/bar/scripts/wifi.sh openclose'"
+    (box
+      :orientation "center"
+      :halign "center"
+      :valign "center"
+      :spacing 2
+      (label :text wifi_icon)
+    )
+  )
+)
+
+(defwidget wifi_widget[]
+  (button
+    :class "wifi_button_widget" 
+    :onclick "bash $HOME/.config/eww/bar/scripts/wifi.sh connect"
+      (box
+      :orientation "horizontal"
+      :halign "end"
+      :valign "start"
+      :spacing 2
+      (label :text wifi_icon)
+      )
+  )
+)
+
+;;Volume Widget
+(defpoll volume_icon :interval "0.5s"
+  "bash -c '$HOME/.config/eww/bar/scripts/volume.sh icon'")
+
+(defpoll volume_percentage :interval "0.1s"
+  "bash -c '$HOME/.config/eww/bar/scripts/volume.sh percentage'")
+(defwidget volume[]
+  (button
+  :class "volume"
+  :onclick "bash -c 'pavucontrol &'"
+  (box
+  :orientation "center"
+  :halign "center"
+  :valign "center"
+  :spacing 2
+  (label :text volume_icon)
+  )
+)
+)
+;;Time Widget (with Calender embedded)
+(defpoll time
+  :interval "1s"
+  "sh -c 'date +%H; date +%M'"
+)
+
+(defpoll date
+  :interval "60s"
+  "bash -c $HOME/.config/eww/bar/scripts/date.sh"
+)
+
+
+(defwidget clock[]
+  (box
+    :orientation "center"
+    :halign "center"
+    :valign "center"
+    :spacing 0
+    (label :text time)
+  )
+)
+
+(defwidget dateblock[]
+  (box
+    :class "dateblock"
+    :orientation "center"
+    :halign "center"
+    :valign "center"
+    :spacing 0
+    (label :text date)
+  )
+)
+;;Workspace Widget
+(defpoll work_space
+  :interval "0.05s"
+  "bash -c '$HOME/.config/eww/bar/scripts/workspaces.sh'" 
+)
+
+(defwidget workspace_widget[]
+  (box
+    :orientation "center"
+    :valign "center"
+    :halign "center"
+    :spacing 2
+    (label :text work_space)
+  )
+)
+
+;;Brightness Widget
+(defpoll brightness_symbol
+  :interval "0.5s"
+  "bash -c '$HOME/.config/eww/bar/scripts/brightness.sh symbol'"
+)
+
+(defpoll brightness_value
+  :interval "0.5s"
+  "bash -c '$HOME/.config/eww/bar/scripts/brightness.sh slider get'"
+)
+
+(defwidget brightness[]
+  (button
+    :class "brightness_button"
+    (box
+      :orientation "center"
+      :halign "center"
+      :valign "center"
+      :spacing 2
+      (label :text brightness_symbol)
+    )
+  )
+)
+
+(defwidget brightness_slider[]
+  (scale
+    :min 0
+    :max 100
+    :value brightness_value
+    :orientation "vertical"
+    :flipped true
+    :width 20
+    :height 120
+    :onchange "bash -c '$HOME/.config/eww/bar/scripts/brightness.sh slider set {}'"
+  )
+)
+
+;;Control Panel Toolbar
+(defvar ctrlpanelopen false)
+(defpoll ctrlpanel_symbol
+  :interval "0.3s"
+  "bash -c '$HOME/.config/eww/bar/scripts/controlpanelbutton.sh symbol'"
+)
+(defwidget ctrlpanelbutton[]
+  (button
+    :class "ctrlpanel_but"
+    :onclick "bash -c '$HOME/.config/eww/bar/scripts/controlpanelbutton.sh openclose'"
+    (box
+      :orientation "center"
+      :halign "center"
+      :valign "center"
+      :spacing 2
+      (label :text ctrlpanel_symbol)
+    )
+  )
+)
+
+
+
+
+;;WINDOW;;
+(defwindow toolbar
+  :class maintoolbar
+  :monitor 0
+  :geometry (geometry
+    :x "0.676%"
+    :y "0%"
+    :width "0.5%"
+    :height "98.334%"
+    :anchor "center right")
+  :stacking "fg"
+  :reserve (struts
+    :distance "2px"
+    :side "top")
+  :windowtype "toolbar"
+  :wm-ignore false
+  :exclusive true
+  :transparent true
+
+  (box
+    :orientation "vertical"
+    :halign "center"
+    :valign "fill"
+
+    (box
+      :class "top_modules_box"
+      :orientation "vertical"
+      :halign "center"
+      :valign "start"
+      :spacing 0
+      (battery)
+      (wifi)
+      (volume)
+      (brightness)
+      (ctrlpanelbutton)
+    )
+
+    (box
+      :class "workspace_modules_box"
+      :expand true
+      :orientation "vertical"
+      :halign "center"
+      :valign "center"
+      (workspace_widget)
+    )
+
+
+    (box
+      :class "clock_box"
+      :orientation "vertical"
+      :halign "center"
+      :valign "end"
+      :expand true
+      :spacing -15
+      (clock)
+      (dateblock)
+    )
+  )
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;#######################################################
+;#######################################################
+;#####################EXPERIMENTAL######################
+;#######################################################
+;#######################################################
+
+(defwindow top_toolbar
+  :monitor 0
+  :geometry (geometry
+    :x "0.5%"
+    :y "0.7%"
+    :width "3%"
+    :height "15%"
+    :anchor "top right"
+  )
+  :stacking "fg"
+
+  :wm-ignore false
+  :exclusive true
+
+  (box
+    :class "top_toolbar_content"
+    :orientation "vertical"
+    :valign "start"
+    :halign "center"
+
+      (box
+        :class "top_toolbar_modules"
+        :orientation "vertical"
+        :valign "center"
+        :halign "start"
+        :spacing "15"
+        (battery)
+        (wifi)
+        (volume)
+      )
+  )
+)
+
+(defwindow top_toolbar
+  :monitor 0
+  :geometry (geometry
+    :x "0.5%"
+    :y "0.7%"
+    :width "3%"
+    :height "15%"
+    :anchor "top right"
+  )
+  :stacking "fg"
+  :wm-ignore false
+  :exclusive true
+
+  (box
+    :class "top_toolbar_content"
+    :orientation "vertical"
+    :valign "start"
+    :halign "center"
+
+    (box
+      :class "top_toolbar_modules"
+      :orientation "vertical"
+      :valign "center"
+      :halign "start"
+      :spacing "15"
+      (battery)
+      (wifi)
+      (volume)
+    )
+  )
+)
+
+(defwindow spacer_toolbar
+  :monitor 0
+  :geometry (geometry
+    :x "0.5%"
+    :y "50%"
+    :width "3%"
+    :height "10%"
+    :anchor "center right"
+  )
+  :stacking "fg"
+  :wm-ignore true
+  :exclusive false
+
+  (box :class "bar-spacer")
+)
+
+(defwindow bottom_toolbar
+  :monitor 0
+  :geometry (geometry
+    :x "0.5%"
+    :y "0.7%"
+    :width "3%"
+    :height "15%"
+    :anchor "bottom right"
+  )
+  :stacking "fg"
+  :reserve (struts
+    :distance "3%"
+    :side "right"
+  )
+  :windowtype "toolbar"
+  :wm-ignore false
+  :exclusive true
+
+  (clock)
+)
