@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES="$HOME/dotfiles"
+DOTFILES="$HOME/Mortem-Desktop"
 CONFIG="$HOME/.config"
 BACKUP="$DOTFILES/backup"
 
