@@ -38,5 +38,10 @@ Tricolor design philosophy:
 
 Minimal accents and high contrast for readability.
 
+<img width="2560" height="1600" alt="2026-02-23-040745_hyprshot" src="https://github.com/user-attachments/assets/7bd4d856-58c7-48a5-8075-ec6ef20e1b3d" />
+<img width="2560" height="1600" alt="2026-02-23-041045_hyprshot" src="https://github.com/user-attachments/assets/e03cbb1e-91e1-4210-ac94-657d7cb01da4" />
+
+
+
 ## Cursor
 
